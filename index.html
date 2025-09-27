@@ -2,437 +2,941 @@
 <html lang="en">
 
 <head>
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Emmanuelle Bourigault - Deep Learning Researcher & Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="image_profile.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/main.bundle.css">
+  <meta name="description" content="Deep Learning Researcher & Engineer specializing in computer vision, 3D reconstruction, and medical imaging at University of Oxford.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4e5a72c756.js"></script>
+  
+  <style>
+    :root {
+      --text-primary: #222;
+      --text-secondary: #555;
+      --text-tertiary: #777;
+      --link-color: #0066cc;
+      --link-hover: #0052a3;
+      --border-color: #d0d0d0;
+      --bg-secondary: #f5f5f5;
+      --max-width: 850px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+      background: white;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .header-text h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-text .title {
+      color: var(--text-secondary);
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .header-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .header-links a:hover {
+      color: var(--link-color);
+    }
+
+    /* Navigation */
+    nav {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text-primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--border-color);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-primary);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* About */
+    .about-content {
+      max-width: 100%;
+    }
+
+    /* Publications */
+    .publication-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .publication-item {
+      padding-left: 20px;
+      border-left: 3px solid var(--border-color);
+      transition: border-color 0.3s ease;
+    }
+
+    .publication-item:hover {
+      border-left-color: var(--link-color);
+    }
+
+    .publication-year {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .publication-title {
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .publication-authors {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .publication-authors strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .publication-venue {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .publication-badge {
+      display: inline-block;
+      background: var(--link-color);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .publication-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 8px;
+    }
+
+    .publication-links a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .publication-links a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    .publication-description {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* Experience Timeline */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+    }
+
+    .experience-date {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 2px;
+      font-weight: 500;
+    }
+
+    .experience-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .experience-company {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .experience-description {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .experience-bullets {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    .experience-bullets li {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .experience-bullets li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* Education */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+    }
+
+    .education-year {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+
+    .education-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .education-institution {
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .education-details {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* Skills - Condensed List */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skill-item {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 14px;
+      min-width: 150px;
+      flex-shrink: 0;
+    }
+
+    .skill-content {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .skill-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .skill-label {
+        min-width: auto;
+      }
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: white;
+    }
+
+    .project-card:hover {
+      border-color: var(--text-primary);
+      transform: translateY(-2px);
+      background: var(--bg-secondary);
+    }
+
+    .project-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Achievements */
+    .achievements-list {
+      list-style: none;
+    }
+
+    .achievements-list li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .achievements-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* Links */
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .header-links {
+        justify-content: center;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+      .experience-item,
+      .education-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .experience-date,
+      .education-year {
+        color: var(--text-secondary);
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        font-size: 12pt;
+      }
+
+      header {
+        page-break-after: avoid;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      .profile-img {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-
-  <section class="hero is-primary">
-    <div class="hero-body">
-      <div class="container">
-        <div class="level">
-          <div class="level-item has-text-centered">
-            <figure class="image" style="width: 256px; height: 256px;">
-              <img class="is-rounded" src="img/image_profile.png">
-            </figure>
-          </div>
-        </div>
-        <div class="columns has-text-centered">
-          <div class="column">
-            <h1 class="title is-1">
-              Emmanuelle Bourigault 
-            </h1>
-            <h2 class="subtitle">
-              4th year PhD Student, VGG, University of Oxford 
-            </h2>
-            <p>
-              <a href="docs/EB_Resume.pdf" class="icon has-text-light">
-                <i class="fas fa-file-word"></i> <strong>Resume</strong>
-              </a>
-            </p>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <img src="img/image_profile.png" alt="Emmanuelle Bourigault" class="profile-img">
+        <div class="header-text">
+          <h1>Emmanuelle Bourigault</h1>
+          <div class="title">Deep Learning Researcher & Engineer</div>
+          <div class="header-links">
+            <a href="mailto:bourigaulte98@gmail.com">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://github.com/EmmanuelleB985" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/emmanuelle-bourigault-b40778154/" target="_blank">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://scholar.google.com/" target="_blank">
+              <i class="fas fa-graduation-cap"></i> Scholar
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section">
-    <div class="container">
-      <h1 class="title">About Me</h1>
-      <hr />
-      <p> I am a PhD student working in computer vision, with a focus on 3D vision, medical imaging, and geometry. My research interests span several cutting-edge topics, including the application of transformers, optimization techniques, domain gap analysis, and uncertainty quantification. I am keen in driving innovation in computational imaging and machine learning. </p>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Publications</h1>
-      <hr />
-          <div class="content">
-            <ul>
-              <li><b>Emmanuelle Bourigault</b>, Amir Jamaludin, and Abdullah Hamdi. UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation. ArXiv, 2025. <a href="https://arxiv.org/abs/2504.06908">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, Amir Jamaludin, Andrew Zisserman. 3D Spine Shape Estimation from Single 2D DXA.<b>Oral</b>. International Conference
-              on Medical Image Computing and Computer-Assisted Intervention (MICCAI),
-              2024.<a href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_1">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, Abdullah Hamdi, Amir Jamaludin. X-Diffusion:
-              Generating Detailed 3D MRI Volumes From a Single Image Using Cross-
-              Sectional Diffusion Models. ArXiv, 2024.<a href="https://arxiv.org/pdf/2404.19604">Paper Link</a> </li>
-              <li>Pauline Bourigault, <b>Emmanuelle Bourigault</b>, Danilo Mantic. Multi-
-              Modal Information Bottleneck Attribution with Cross-Attention Guidance.
-              The British Machine Vision Conference (BMVC), 2024.<a href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_64/paper.pdf">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, Pauline Bourigault. MVDiff: Scalable and Flexible
-                Multi-View Diffusion for 3D Object Reconstruction from Single-View.
-                Workshop in Generative AI, Computer Vision and Pattern Recognition
-                (CVPR), 2024.<a href="https://openaccess.thecvf.com/content/CVPR2024W/GCV/papers/Bourigault_MVDiff_Scalable_and_Flexible_Multi-view_Diffusion_for_3D_Object_Reconstruction_CVPRW_2024_paper.pdf">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, Amir Jamaludin, Emma M. Clark, Jeremy Fairbank,
-                Andrew Zisserman. Estimating 3D Shape of Spine from 2D DXA.<b>Oral</b>. Shape AI Workshop, MICCAI, 2023.
-                <a href="https://link.springer.com/chapter/10.1007/978-3-031-46914-5_22">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, Amir Jamaludin, Timor Kadir, Andrew Zisserman.
-                Scoliosis Measurement on DXA Scans Using a Combined Deep
-                Learning and Spinal Geometry Approach. Medical Imaging and Deep
-                Learning (MIDL), 2022.<a href="https://openreview.net/pdf?id=4enF5ipqKJQ">Paper Link</a> </li>
-              <li><b>Emmanuelle Bourigault</b>, DR McGowan, A. Mehranian, BW Papiez. Mul- timodal PET/CT tumour segmentation and prediction of progression-free survival using a full-scale UNet with attention. Head and Neck Challenge, MICCAI, 2021. <a href="https://arxiv.org/pdf/2111.03848">Paper Link</a> </li>
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-content">
+        <p>
+          I am a Deep Learning Researcher and Engineer with a Ph.D. from the University of Oxford, working under Professor Andrew Zisserman at the Visual Geometry Group (VGG). My research focuses on the intersection of computer vision and medical imaging, with particular emphasis on 3D reconstruction, large-scale semi-supervised learning, and generative models for medical applications.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-date">May 2025 – Sep 2025</div>
+          <div class="experience-content">
+            <h3>Deep Learning Research Engineer</h3>
+            <div class="experience-company">QuantCo, London, UK</div>
+            <ul class="experience-bullets">
+              <li>Developed weakly supervised and self-supervised models for image segmentation and classification grading</li>
+              <li>Developed strategies to handle scarce and noisy labels</li>
+              <li>Led implementation of production-ready ML pipelines, collaborating with cross-functional teams of 10+ members</li>
+              <li>Presented technical findings to non-technical stakeholders, translating complex ML concepts into actionable insights</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">Sep 2020 – Sep 2021</div>
+          <div class="experience-content">
+            <h3>AI Software Engineer Intern</h3>
+            <div class="experience-company">GE Healthcare, Oxford, UK</div>
+            <ul class="experience-bullets">
+              <li>Implemented automated quality-checks using C++ on data from different institutions for downstream AI tasks</li>
+              <li>Collaborated effectively with senior software engineering team of 8+ members</li>
+              <li>Communicated technical requirements and solutions across multidisciplinary teams</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-date">Jun 2020 – Sep 2020</div>
+          <div class="experience-content">
+            <h3>AI Research Intern</h3>
+            <div class="experience-company">Netdevices, Paris, France</div>
+            <ul class="experience-bullets">
+              <li>Automated data management pipelines using ML for hospital applications</li>
             </ul>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="publication-list">
+        
+        <div class="publication-item">
+          <div class="publication-year">2025</div>
+          <div class="publication-title">
+            UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Abdullah Hamdi
+          </div>
+          <div class="publication-venue">International Conference on Computer Vision (ICCV)</div>
+          <div class="publication-description">
+            Developed large-scale semi-supervised framework for 3D medical image segmentation with 1B+ labeled masks from 48K+ datasets, enabling generalizable models across diverse medical imaging modalities.
+          </div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/abs/2504.06908" target="_blank">Paper</a>
+            <a href="https://emmanuelleb985.github.io/ukbob/" target="_blank">Project Page</a>
+            <a href="https://github.com/EmmanuelleB985/UK_BOB" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2025</div>
+          <div class="publication-title">
+            FrEVL: Leveraging Frozen Pretrained Embeddings for Efficient Vision-Language Understanding
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Pauline Bourigault
+          </div>
+          <div class="publication-venue">International Conference on Computer Vision Safe and Trustworthy Multimodal AI Systems Workshop (ICCVW)</div>
+          <div class="publication-description">
+            Safe and trustworthy vision-language multi-modal approach leveraging frozen pretrained embeddings for efficient understanding without expensive fine-tuning.
+          </div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/abs/2508.04469" target="_blank">Paper</a>
+            <a href="https://github.com/EmmanuelleB985/FrEVL" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2025</div>
+          <div class="publication-title">
+            X-Diffusion: Generating 3D MRI Volumes From a Single Image Using Cross-Sectional Diffusion Models
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Abdullah Hamdi, Amir Jamaludin
+          </div>
+          <div class="publication-venue">International Conference on Computer Vision GAIA Workshop (ICCVW)</div>
+          <div class="publication-description">
+            Novel diffusion model approach for generating detailed 3D MRI volumes from single 2D images using cross-sectional conditioning.
+          </div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/pdf/2404.19604" target="_blank">Paper</a>
+            <a href="https://emmanuelleb985.github.io/XDiffusion/" target="_blank">Project Page</a>
+            <a href="https://github.com/EmmanuelleB985/X-Diffusion" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2024</div>
+          <div class="publication-title">
+            Estimating 3D Shape of Spine from 2D DXA
+            <span class="publication-badge">Oral</span>
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Andrew Zisserman
+          </div>
+          <div class="publication-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI)</div>
+          <div class="publication-description">
+            2D-to-3D reconstruction using Vision Transformers for spine shape estimation from DXA images, achieving clinical-grade accuracy.
+          </div>
+          <div class="publication-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_1" target="_blank">Paper</a>
+            <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" target="_blank">Project Page</a>
+            <a href="https://github.com/EmmanuelleB985/DXA-to-3D" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2024</div>
+          <div class="publication-title">
+            Multi-Modal Information Bottleneck Attribution with Cross-Attention Guidance
+          </div>
+          <div class="publication-authors">
+            Pauline Bourigault, <strong>Emmanuelle Bourigault</strong>, Danilo Mantic
+          </div>
+          <div class="publication-venue">British Machine Vision Conference (BMVC)</div>
+          <div class="publication-description">
+            Multi-modal attribution method using information bottleneck theory with cross-attention mechanisms for interpretable AI.
+          </div>
+          <div class="publication-links">
+            <a href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_64/paper.pdf" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2024</div>
+          <div class="publication-title">
+            MVDiff: Scalable and Flexible Multi-View Diffusion for 3D Object Reconstruction from Single-View
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Pauline Bourigault
+          </div>
+          <div class="publication-venue">Computer Vision and Pattern Recognition Workshop on Generative AI (CVPR)</div>
+          <div class="publication-description">
+            Scalable multi-view diffusion approach for 3D object reconstruction from single images with flexible viewpoint generation.
+          </div>
+          <div class="publication-links">
+            <a href="https://openaccess.thecvf.com/content/CVPR2024W/GCV/papers/Bourigault_MVDiff_Scalable_and_Flexible_Multi-view_Diffusion_for_3D_Object_Reconstruction_CVPRW_2024_paper.pdf" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2023</div>
+          <div class="publication-title">
+            3D Shape Analysis of Scoliosis
+            <span class="publication-badge">Oral</span>
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Emma M. Clark, Jeremy Fairbank, Timor Kadir, Andrew Zisserman
+          </div>
+          <div class="publication-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention Shape in Medical Imaging Workshop (MICCAI)</div>
+          <div class="publication-description">
+            Comprehensive 3D shape analysis framework for scoliosis assessment and characterization using geometric deep learning.
+          </div>
+          <div class="publication-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-46914-5_22" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2022</div>
+          <div class="publication-title">
+            Scoliosis Measurement on DXA Scans Using Combined Deep Learning and Spinal Geometry
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Timor Kadir, Andrew Zisserman
+          </div>
+          <div class="publication-venue">Medical Imaging with Deep Learning (MIDL)</div>
+          <div class="publication-description">
+            Combined deep learning and geometric approaches for automated scoliosis measurement on DXA scans achieving expert-level accuracy.
+          </div>
+          <div class="publication-links">
+            <a href="https://openreview.net/pdf?id=4enF5ipqKJQ" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="publication-year">2021</div>
+          <div class="publication-title">
+            Multimodal PET/CT Tumour Segmentation and Progression-Free Survival Prediction
+          </div>
+          <div class="publication-authors">
+            <strong>Emmanuelle Bourigault</strong>, DR McGowan, E. Mehranian, BW Papież
+          </div>
+          <div class="publication-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention Head and Neck Tumor Segmentation Challenge (MICCAI)</div>
+          <div class="publication-description">
+            Multi-modal approach for tumor segmentation and survival prediction using PET/CT imaging with attention mechanisms.
+          </div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/pdf/2111.03848" target="_blank">Paper</a>
+            <a href="https://github.com/EmmanuelleB985/Head-and-Neck-Tumour-Segmentation-and-Prediction-of-Patient-Survival" target="_blank">Code</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Experience</h1>
-      <hr />
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-            </div>
-            <div class="media-content">
-              <p class="title is-4">Netdevices, Paris</p>
-              <p class="subtitle is-6"> Development of an Application to Automatise Healthcare in Hospitals in France - <time datetime="2020-6"> June 2020</time> - <time
-                  datetime="2020-9">September 2020</time> </p>
-            </div>
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education-list">
+        <div class="education-item">
+          <div class="education-year">2021 - 2025</div>
+          <div class="education-content">
+            <h3>Ph.D. in Engineering - Computer Vision</h3>
+            <div class="education-institution">University of Oxford</div>
           </div>
-          <div class="content">
-            <p>Improvement of a data management tool using AI, automated counting of available hospital beds, and available materials.</p>
-            <div class="tags">
-              <span class="tag">c++</span>
-              <span class="tag">python</span>
-              <span class="tag">excel</span>
-              <span class="tag">json</span>
-            </div>
-          </div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-year">2019 - 2020</div>
+          <div class="education-content">
+            <h3>MSc in Translational Neurosciences</h3>
+            <div class="education-institution">Imperial College London</div>
+         </div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-year">2016 - 2019</div>
+          <div class="education-content">
+            <h3>BSc in Mathematics/Statistics and Neuroscience</h3>
+            <div class="education-institution">University College London (UCL)</div>
+         </div>
         </div>
       </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-            </div>
-            <div class="media-content">
-              <p class="title is-4">Michael Hausser Lab, University College London</p>
-              <p class="subtitle is-6">Development of virtual reality models for spatial navigation understanding - <time datetime="2017-3"> March 2017</time> - <time
-                  datetime="2019-6">June 2019</time></p>
-            </div>
-          </div>
-          <div class="content">
-            <p> Develop virtual reality (VR) models involving mice training on wheel setup with 2P-microscopy recording. Python-based project to analyse mouse brain activity.</p>
-            <div class="tags">
-              <span class="tag">python</span>
-              <span class="tag">VR</span>
-            </div>
-          </div>
+    </section>
+
+    <!-- Skills - Condensed Version -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-label">Languages & Tools:</span>
+          <span class="skill-content">C++, Python, MATLAB, R, Git, Docker, CUDA, OpenCV, SQL</span>
+        </div>
+        
+        <div class="skill-item">
+          <span class="skill-label">ML/DL Frameworks:</span>
+          <span class="skill-content">PyTorch, TensorFlow, JAX, Keras, scikit-learn, Weights & Biases, TensorBoard, Hugging Face</span>
+        </div>
+        
+        <div class="skill-item">
+          <span class="skill-label">Computer Vision:</span>
+          <span class="skill-content">Object detection, segmentation, 3D reconstruction, generative models, medical imaging</span>
+        </div>
+        
+        <div class="skill-item">
+          <span class="skill-label">Deep Learning:</span>
+          <span class="skill-content">CNNs, transformers, vision transformers (ViT), multi-modal learning, domain adaptation, transfer learning</span>
+        </div>
+        
+        <div class="skill-item">
+          <span class="skill-label">Infrastructure:</span>
+          <span class="skill-content">AWS, Google Cloud, Azure, distributed training, MLOps</span>
+        </div>
+        
+        <div class="skill-item">
+          <span class="skill-label">Soft Skills:</span>
+          <span class="skill-content">Research leadership, cross-functional collaboration, scientific communication, mentorship, project management, problem-solving, critical thinking, adaptability</span>
         </div>
       </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-            </div>
-            <div class="media-content">
-              <p class="title is-4">Hugo Spiers Lab, University College London</p>
-              <p class="subtitle is-6">Spatial Navigation App for Dementia Detection - <time datetime="2018-6"> June 2018</time> - <time
-                  datetime="2018-8">August 2018</time></p>
-            </div>
-          </div>
-          <div class="content">
-            <p> Design and conduction of real-world experiments to validate the spatial navigation game <i>Sea Hero Quest</i>.</p>
-            <div class="tags">
-              <span class="tag">python</span>
-              <span class="tag">matlab</span>
-              <span class="tag">excel</span>
-            </div>
-          </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Research Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3 class="project-title">UKBOB: Large-Scale Medical Segmentation</h3>
+          <p class="project-description">
+            Developing one billion labeled masks for generalizable 3D medical image segmentation using the UK Biobank dataset, enabling large-scale training of medical AI models.
+          </p>
+          <a href="https://emmanuelleb985.github.io/ukbob/" class="project-link" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">3D Spine Reconstruction from 2D DXA</h3>
+          <p class="project-description">
+            Automated framework to estimate 3D spine shape from single 2D DXA scans by predicting sagittal views, achieving high accuracy for scoliosis assessment.
+          </p>
+          <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" class="project-link" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">X-Diffusion</h3>
+          <p class="project-description">
+            Cross-sectional diffusion model for generating complete 3D MRI volumes from single slices, setting new benchmarks in medical image synthesis.
+          </p>
+          <a href="https://emmanuelleb985.github.io/XDiffusion/" class="project-link" target="_blank">View Project →</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Projects</h1>
-      <hr />
-      <div class="tile is-ancestor">
-        <div class="tile is-vertical is-12">
-          <div class="tile">
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title">UKBOB: Large-Scale Segmentator on UK Biobank Dataset</p>
-                <figure class="image is-3by2">
-                  <img class="modal-trigger" data-target="project-1-modal" src="img/white-UKBOB.png">
-                </figure>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title">3D Spine Shape Reconstruction from Single 2D DXA</p>
-                <figure class="image is-4by3">
-                  <img class="modal-trigger" data-target="project-2-modal" src="img/white-Project-cover-2D-3D-sco.png">
-                </figure>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title">X-Diffusion : Cross-sectional Diffusion Model for 3D Volume Reconstruction from Single/Few Views</p>
-                <figure class="image is-4by3">
-                  <img class="modal-trigger" data-target="project-3-modal" src="img/white-Project-cover-X-diff.png">
-                </figure>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tile is-ancestor">
-        <div class="tile is-vertical is-12">
-          <div class="tile">
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title">3D Spine Shape Analysis</p>
-                <figure class="image is-4by3">
-                  <img class="modal-trigger" data-target="project-4-modal" src="img/white-Project-cover-3D-sco.png">
-                </figure>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title">Automated Scoliosis Measurement on 2D DXA scans from UK Biobank</p>
-                <figure class="image is-4by3">
-                  <img class="modal-trigger" data-target="project-5-modal" src="img/white-Project-cover-2D-sco.png">
-                </figure>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Education</h1>
-      <hr />
-      <div class="card">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">University of Oxford</p>
-            <p class="subtitle is-6">DPhil in Engineering, SABS CDT Program - <time datetime="2020-9">September 2020</time> - <time
-                datetime="2025-5">April 2025</time></p>
-          </div>
-        </div>
-      </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">Imperial College London</p>
-            <p class="subtitle is-6">MSc Computational Neuroscience - <time datetime="2019-9">September 2019</time> - <time
-                datetime="2020-9">September 2020</time></p>
-          </div>
-        </div>
-      </div>
-      <div class="card card-gap">
-        <div class="card-content">
-          <div class="content">
-            <p class="title is-4">University College London</p>
-            <p class="subtitle is-6">BSc Mathematics/Statistics & Neuroscience - <time datetime="2016-9">September 2016</time> - <time
-                datetime="2019-9">September 2019</time></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Contact</h1>
-      <hr />
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="emmanuelle.bourigault@dtc.ox.ac.uk" class="icon is-large">
-              <i class="fas fa-2x fa-envelope"></i>
-            </a>
-            <p class="heading"><a href="mailto:emmanuelle.bourigault@dtc.ox.ac.uk">emmanuelle.bourigault@dtc.ox.ac.uk</a></p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="https://github.com/EmmanuelleB985" class="icon is-large">
-              <i class="fab fa-2x fa-github"></i>
-            </a>
-            <p class="heading"><a href="https://github.com/EmmanuelleB985">github.com/EmmanuelleB985</a></p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <a href="https://www.linkedin.com/in/emmanuelle-bourigault-b40778154/?originalSubdomain=uk" class="icon is-large">
-              <i class="fab fa-2x fa-linkedin-in"></i>
-            </a>
-            <p class="heading"><a href="https://www.linkedin.com/in/emmanuelle-bourigault-b40778154/?originalSubdomain=uk">linkedin</a></p>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </section>
-
-  <!-- Modals -->
-  <div id="project-1-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">UKBOB: Large-Scale Segmentator on UK Biobank Dataset</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div class="content">
-
-          <p>Documentation Coming Soon.</p>
-
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
+    </section>
   </div>
 
-  <div id="project-2-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">3D Spine Shape Estimation from Single 2D DXA</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
+  <script>
+    // Simple smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
 
+    // Update active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
 
-        <div class="content">
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
 
-          <p> Scoliosis is currently assessed solely on 2D lateral deviations, but recent studies have also revealed the importance of other imaging planes in understanding the deformation of the spine. Consequently, exctracting the spinal geometry in 3D would help quantify these spinal deformations and aid diagnosis. In this study, we propose an automated general framework to estimate the 3D spine shape from 2D DXA scans. We achieve this by explicitly predicting the sagittal view of the spine from the DXA scan. Using these two orthogonal projections of the spine (coronal in DXA, and sagittal from the prediction), we are able to describe the 3D shape of the spine. The prediction is learnt from over 30k paired images of DXA and MRI scans. We assess the performance of the method on a held out test set, and achieve high accuracy. For more information, visit our website : <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/">Project Link</a> </p>
-
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-3-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">X-Diffusion: 3D MRI Volumes Generation 
-        </p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div class="content">
-          <p>We present X-Diffusion, a cross-sectional diffusion model tailored for Magnetic Resonance Imaging (MRI) data. X- Diffusion is capable of generating the entire MRI volume from just a single MRI slice or optionally from few multiple slices, setting new benchmarks in the precision of synthesized MRIs from extremely sparse observations. The uniqueness lies in the novel view-conditional training and inference of X-Diffusion on MRI volumes, allowing for generalized MRIlearning. The generated MRIs retain essential features of the original MRI, including tumour profiles, spine curvature, brain volume, and beyond.
-            For more information, visit our website : <a href="https://emmanuelleb985.github.io/XDiffusion/">Project Link</a> </p>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-4-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">3D Shape Analysis of Scoliosis</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div class="content">
-          <p>Scoliosis is typically measured in 2D in the coronal plane, although it is a three-dimensional (3D) condition. Our objective in this work is to analyse the 3D geometry of the spine and its relationship to the vertebral canal. To this end, we make three contributions: first, we extract the 3D space curve of the spine automatically from low-resolution whole-body Dixon MRIs and obtain coronal, sagittal and axial projections for various degrees of scoliosis; second, we also extract the vertebral canal as a 3D curve from the MRIs, and examine the relationship between the two 3D curves; and third, we measure the angle of rotation of the spine and examine the correlation between this 3D measurement and the 2D curvature of the coronal projection. For this study, we use 48,384 MRIs from the UK Biobank.</p>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-5-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-
-        <div class="content">
-          <p>We propose improvements to an automated method for scoliosis measurement. Our main novelty is the use of a spline to better model the curve of the spine, and we employ pseudo- labelling to re-train the segmentation step to mitigate the domain gap when adapting to a new dataset. We obtain promising results with a good fit of our smoothed curve to approximate the spinal midpoints in severe scoliosis cases, and obtain good agreement against human ground-truth. This work is relevant for improving the severity grading of scoliosis and potentially aiding in the treatment management of scoliosis.</p>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <div id="project-6-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Project title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div id="project-6-modal-carousel" class="carousel">
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/1.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/2.png">
-          </figure>
-          <figure class="image is-4by3 carousel-cell">
-            <img src="img/carousel/3.png">
-          </figure>
-        </div>
-
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo
-            consequat.</p>
-          <div class="tags">
-            <span class="tag">angular</span>
-            <span class="tag">mongo</span>
-            <span class="tag">typscript</span>
-            <span class="tag">node</span>
-          </div>
-        </div>
-
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <script src="js/bundle.js"></script>
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
