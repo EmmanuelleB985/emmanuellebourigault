@@ -3,53 +3,54 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Emmanuelle Bourigault - Multimodal AI Research Engineer</title>
+  <title>Emmanuelle Bourigault — ML Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Research Engineer specializing in multimodal post-training, VLM evaluation, scientific AI, and 3D generative models.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="ML Engineer building production multimodal systems — VLM post-training, evaluation infrastructure, large-scale data pipelines, and 3D generative models.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4e5a72c756.js"></script>
-  
+
   <style>
     :root {
-      --text-primary: #222;
-      --text-secondary: #555;
-      --text-tertiary: #777;
-      --link-color: #0066cc;
-      --link-hover: #0052a3;
-      --border-color: #d0d0d0;
-      --bg-secondary: #f5f5f5;
-      --max-width: 850px;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-tertiary: #717171;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-bg: #eff6ff;
+      --border-color: #e2e2e2;
+      --bg-card: #fafafa;
+      --bg-tag: #f0f0f0;
+      --max-width: 920px;
+      --radius: 6px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text-primary);
-      line-height: 1.6;
-      font-size: 16px;
-      background: white;
+      line-height: 1.7;
+      font-size: 18px;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 28px;
     }
 
+    /* ── Header ── */
     header {
-      padding: 60px 0 40px;
+      padding: 60px 0 44px;
       border-bottom: 1px solid var(--border-color);
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
 
     .profile-img {
@@ -57,26 +58,23 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
+      border: 2px solid var(--border-color);
       transition: transform 0.3s ease;
     }
-
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
+    .profile-img:hover { transform: scale(1.04); }
 
     .header-text h1 {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
     }
 
     .header-text .title {
       color: var(--text-secondary);
-      font-size: 18px;
-      margin-bottom: 12px;
+      font-size: 20px;
       font-weight: 500;
-      max-width: 650px;
+      margin-bottom: 16px;
     }
 
     .header-links {
@@ -88,432 +86,354 @@
     .header-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 15px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.2s ease;
       font-weight: 500;
+      transition: color 0.2s;
     }
+    .header-links a:hover { color: var(--accent); }
 
-    .header-links a:hover {
-      color: var(--link-color);
-    }
-
+    /* ── Nav ── */
     nav {
-      padding: 30px 0;
+      padding: 26px 0;
       border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 28px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: var(--text-secondary);
+      color: var(--text-tertiary);
       text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      transition: color 0.2s ease;
-      position: relative;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--text-primary);
-    }
-
-    section {
-      padding: 50px 0;
-    }
-
-    section + section {
-      border-top: 1px solid var(--border-color);
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-primary);
-    }
-
-    h3 {
       font-size: 16px;
       font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--text-primary); }
+
+    /* ── Sections ── */
+    section { padding: 52px 0; }
+    section + section { border-top: 1px solid var(--border-color); }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
     }
 
     p {
       color: var(--text-secondary);
-      margin-bottom: 20px;
-      line-height: 1.8;
-      font-size: 16px;
+      margin-bottom: 18px;
+      line-height: 1.75;
+      font-size: 18px;
     }
 
-    .about-content {
-      max-width: 100%;
+    /* ── Tags ── */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--bg-tag);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 4px;
+      letter-spacing: 0.2px;
     }
 
-    .focus-grid,
-    .project-grid {
+    /* ── Cards ── */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
     }
 
-    .focus-card,
-    .project-card {
+    .card {
       border: 1px solid var(--border-color);
-      padding: 20px;
-      transition: all 0.3s ease;
-      background: white;
+      border-radius: var(--radius);
+      padding: 24px;
+      background: #fff;
+      transition: border-color 0.25s, transform 0.25s;
     }
-
-    .focus-card:hover,
-    .project-card:hover {
+    .card:hover {
       border-color: var(--text-primary);
       transform: translateY(-2px);
-      background: var(--bg-secondary);
     }
-
-    .focus-card.featured,
-    .project-card.featured {
-      border-color: var(--link-color);
-      background: linear-gradient(135deg, #f0f7ff 0%, white 100%);
+    .card.highlight {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-bg);
     }
-
-    .focus-card.featured:hover,
-    .project-card.featured:hover {
+    .card.highlight:hover {
       border-color: var(--text-primary);
-      background: var(--bg-secondary);
+      border-left-color: var(--accent);
+      background: var(--bg-card);
     }
 
-    .focus-title,
-    .project-title {
-      font-size: 16px;
-      font-weight: 600;
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
       margin-bottom: 10px;
-      color: var(--text-primary);
     }
 
-    .focus-description,
-    .project-description {
-      font-size: 14px;
+    .card p, .card .desc {
+      font-size: 16px;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 12px;
     }
 
-    .publication-list {
+    .card-links {
       display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .publication-item {
-      padding-left: 20px;
-      border-left: 3px solid var(--border-color);
-      transition: border-color 0.3s ease;
-    }
-
-    .publication-item:hover {
-      border-left-color: var(--link-color);
-    }
-
-    .publication-year {
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-weight: 700;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .publication-title {
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
-
-    .publication-authors {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
-
-    .publication-authors strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .publication-venue {
-      font-size: 14px;
-      color: var(--text-tertiary);
-      font-style: italic;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    .publication-badge {
-      display: inline-block;
-      background: var(--link-color);
-      color: white;
-      padding: 3px 8px;
-      border-radius: 3px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-left: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .publication-links,
-    .project-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 8px;
+      gap: 16px;
       flex-wrap: wrap;
       align-items: center;
+      margin-top: 12px;
     }
 
-    .publication-links a,
-    .project-link {
-      color: var(--link-color);
+    .card-links a {
+      color: var(--accent);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
-      transition: color 0.2s ease;
+      transition: color 0.2s;
+    }
+    .card-links a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    code.install {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 15px;
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 14px;
     }
 
-    .publication-links a:hover,
-    .project-link:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
+    .pypi-badge img { height: 22px; }
 
-    .publication-description {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      font-style: italic;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
+    /* ── Experience ── */
+    .exp-list { display: flex; flex-direction: column; gap: 36px; }
 
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-    }
-
-    .experience-item {
+    .exp-item {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 170px 1fr;
       gap: 30px;
     }
 
-    .experience-date {
-      color: var(--text-secondary);
-      font-size: 14px;
+    .exp-date {
+      color: var(--text-tertiary);
+      font-size: 15px;
       font-family: 'JetBrains Mono', monospace;
-      padding-top: 2px;
       font-weight: 500;
+      padding-top: 3px;
     }
 
-    .experience-content h3 {
-      font-size: 16px;
-      font-weight: 600;
+    .exp-content h3 {
+      font-size: 18px;
+      font-weight: 700;
       margin-bottom: 4px;
     }
 
-    .experience-company {
+    .exp-company {
       color: var(--text-secondary);
-      font-size: 15px;
-      margin-bottom: 10px;
+      font-size: 16px;
       font-weight: 500;
+      margin-bottom: 12px;
     }
 
-    .experience-bullets {
+    .exp-bullets {
       list-style: none;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .experience-bullets li {
+    .exp-bullets li {
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.7;
       margin-bottom: 6px;
       padding-left: 20px;
       position: relative;
     }
-
-    .experience-bullets li:before {
-      content: "•";
+    .exp-bullets li::before {
+      content: "–";
       position: absolute;
       left: 0;
       color: var(--text-tertiary);
     }
 
-    .education-list {
+    /* ── Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .pub-item {
+      padding-left: 20px;
+      border-left: 3px solid var(--border-color);
+      transition: border-color 0.3s;
+    }
+    .pub-item:hover { border-left-color: var(--accent); }
+
+    .pub-year {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+      line-height: 1.45;
+    }
+
+    .pub-authors {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+    .pub-authors strong { color: var(--text-primary); font-weight: 600; }
+
+    .pub-venue {
+      font-size: 15px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .pub-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .pub-links a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* ── Skills ── */
+    .skills-grid {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 12px;
     }
-
-    .education-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 30px;
+    .skill-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
     }
-
-    .education-year {
+    .skill-label {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 15px;
+      min-width: 165px;
+      flex-shrink: 0;
+    }
+    .skill-val {
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* ── Education ── */
+    .edu-list { display: flex; flex-direction: column; gap: 28px; }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 30px;
+    }
+
+    .edu-year {
+      color: var(--text-tertiary);
+      font-size: 15px;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 500;
     }
 
-    .education-content h3 {
+    .edu-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+
+    .edu-inst {
+      color: var(--text-secondary);
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 4px;
     }
 
-    .education-institution {
-      color: var(--text-secondary);
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .education-details {
+    .edu-detail {
       color: var(--text-tertiary);
-      font-size: 14px;
+      font-size: 15px;
       font-style: italic;
     }
 
-    .skills-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .skill-item {
-      display: flex;
-      gap: 10px;
-      align-items: baseline;
-    }
-
-    .skill-label {
-      font-weight: 700;
-      color: var(--text-primary);
-      font-size: 14px;
-      min-width: 160px;
-      flex-shrink: 0;
-    }
-
-    .skill-content {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .pypi-badge {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .pypi-badge img {
-      height: 20px;
-    }
-
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--link-hover);
-    }
-
+    /* ── Footer ── */
     footer {
       padding: 40px 0;
       border-top: 1px solid var(--border-color);
       text-align: center;
-      color: var(--text-secondary);
+      color: var(--text-tertiary);
       font-size: 14px;
     }
 
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-      }
-
-      .header-links {
-        justify-content: center;
-      }
-
-      nav ul {
-        justify-content: center;
-      }
-
-      .experience-item,
-      .education-item {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .experience-date,
-      .education-year {
-        color: var(--text-secondary);
-        margin-bottom: 5px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      .focus-grid,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skill-item {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .skill-label {
-        min-width: auto;
-      }
+      .header-content { flex-direction: column; text-align: center; gap: 18px; }
+      .header-links { justify-content: center; }
+      nav ul { justify-content: center; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 8px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .skill-row { flex-direction: column; gap: 3px; }
+      .skill-label { min-width: auto; }
+      h1 { font-size: 28px; }
     }
 
     @media print {
-      body {
-        font-size: 12pt;
-      }
-
-      header {
-        page-break-after: avoid;
-      }
-
-      section {
-        page-break-inside: avoid;
-      }
-
-      .profile-img {
-        display: none;
-      }
+      nav { position: static; }
+      .profile-img { display: none; }
+      section { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -527,23 +447,13 @@
         <img src="img/image_profile.png" alt="Emmanuelle Bourigault" class="profile-img">
         <div class="header-text">
           <h1>Emmanuelle Bourigault</h1>
-          <div class="title">Research Engineer · Multimodal Learning · VLM Evaluation </div>
+          <div class="title">Research Engineer · Multimodal Systems · VLM Evaluation</div>
           <div class="header-links">
-            <a href="mailto:bourigaulte98@gmail.com">
-              <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://github.com/EmmanuelleB985" target="_blank">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/emmanuelle-bourigault-b40778154/" target="_blank">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://scholar.google.com/citations?user=5qTaVUcAAAAJ&hl=en&oi=ao" target="_blank">
-              <i class="fas fa-graduation-cap"></i> Scholar
-            </a>
-            <a href="https://pypi.org/project/mmeval-vrag/" target="_blank">
-              <i class="fab fa-python"></i> PyPI
-            </a>
+            <a href="mailto:bourigaulte98@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://github.com/EmmanuelleB985" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/emmanuelle-bourigault-b40778154/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=5qTaVUcAAAAJ&hl=en&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="https://pypi.org/project/mmeval-vrag/" target="_blank"><i class="fab fa-python"></i> PyPI</a>
           </div>
         </div>
       </div>
@@ -553,12 +463,11 @@
     <nav>
       <ul>
         <li><a href="#about" class="active">About</a></li>
-        <li><a href="#focus">Focus</a></li>
-        <li><a href="#software">Evaluation & Software</a></li>
-        <li><a href="#projects">Selected Projects</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#publications">Publications</a></li>
+        <li><a href="#software">Open-Source & Tooling</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
         <li><a href="#education">Education</a></li>
       </ul>
     </nav>
@@ -566,285 +475,107 @@
     <!-- About -->
     <section id="about">
       <h2>About</h2>
-      <div class="about-content">
-        <p>
-          I build multimodal AI systems that evaluate, adapt, and improve foundation models across vision, language, and 3D data. My current focus is on multimodal post-training, VLM evaluation, hallucination and faithfulness measurement, and scientific reasoning systems that connect model behaviour to reliable downstream use.
-        </p>
-        <p>
-          I completed my PhD at the University of Oxford's Visual Geometry Group, supervised by Prof. Andrew Zisserman, where I worked on multimodal learning, 3D reconstruction, and generative models. My work combines research engineering, large-scale data pipelines, model evaluation, and production-oriented deployment.
-        </p>
-      </div>
-    </section>
-
-    <!-- Focus -->
-    <section id="focus">
-      <h2>Research Focus</h2>
-      <div class="focus-grid">
-        <div class="focus-card featured">
-          <h3 class="focus-title">Multimodal Post-Training</h3>
-          <p class="focus-description">
-            Fine-tuning and adapting LLMs/VLMs using supervised fine-tuning, RLHF-style preference optimisation, DPO-style training, and domain-specific evaluation loops.
-          </p>
-        </div>
-
-        <div class="focus-card featured">
-          <h3 class="focus-title">VLM Evaluation & Reliability</h3>
-          <p class="focus-description">
-            Evaluation pipelines for hallucination, retrieval faithfulness, visual grounding, cross-modal alignment, and regression testing of multimodal systems.
-          </p>
-        </div>
-
-        <div class="focus-card featured">
-          <h3 class="focus-title">Scientific & Physical AI</h3>
-          <p class="focus-description">
-            Multimodal reasoning over diagrams, 3D structure, medical/scientific data, and action-relevant visual scenes, with emphasis on verifiable outputs.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Software -->
-    <section id="software">
-      <h2>Evaluation & Open-Source Software</h2>
-      <div class="project-grid">
-        <div class="project-card featured">
-          <h3 class="project-title">mmeval-vrag: Multimodal RAG Evaluation Framework</h3>
-          <p class="project-description">
-            Open-source Python package for evaluating multimodal vision-language RAG systems. It measures retrieval quality, hallucination, answer faithfulness, and cross-modal alignment, supporting checkpoint comparison and regression testing for VLM/RAG pipelines.
-          </p>
-          <code style="display:block; background:#f5f5f5; padding:8px 12px; border-radius:4px; font-size:13px; color:#333; margin-bottom:12px; font-family:'JetBrains Mono',monospace;">pip install mmeval-vrag</code>
-          <div class="project-links">
-            <a href="https://pypi.org/project/mmeval-vrag/" class="project-link" target="_blank"><i class="fab fa-python"></i> PyPI →</a>
-            <a href="https://github.com/EmmanuelleB985/mmeval-vrag" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub →</a>
-            <a href="https://pypi.org/project/mmeval-vrag/" class="pypi-badge" target="_blank">
-              <img src="https://badge.fury.io/py/mmeval-vrag.svg" alt="PyPI version">
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card featured">
-          <h3 class="project-title">SciVLA-Verify: Agentic VLM Evaluation</h3>
-          <p class="project-description">
-            In development: a Hugging Face benchmark and agentic evaluation toolkit for multimodal scientific reasoning over diagrams, plots, physics scenes, and action-conditioned visual tasks. Designed to generate verified reasoning traces and SFT/DPO preference data for post-training.
-          </p>
-          <div class="project-links">
-            <a href="#" class="project-link" target="_blank">Coming Soon →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selected Projects -->
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="project-grid">
-
-        <div class="project-card">
-          <h3 class="project-title">FrEVL: Efficient Vision-Language Adaptation</h3>
-          <p class="project-description">
-            Vision-language adaptation using frozen pretrained embeddings, reducing trainable parameters while preserving strong multimodal understanding.
-          </p>
-          <a href="https://github.com/EmmanuelleB985/FrEVL" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">UKBOB: Large-Scale 3D Segmentation</h3>
-          <p class="project-description">
-            Large-scale semi-supervised learning project generating one billion labelled masks for generalizable 3D medical segmentation.
-          </p>
-          <a href="https://emmanuelleb985.github.io/ukbob/" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">MVDiff: Multi-View Diffusion</h3>
-          <p class="project-description">
-            Diffusion-based multi-view generation for 3D reconstruction, focused on conditional generation and view consistency.
-          </p>
-          <a href="https://github.com/EmmanuelleB985/MVDiff" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">X-Diffusion: 3D Volume Generation</h3>
-          <p class="project-description">
-            Cross-sectional diffusion model for generating complete 3D volumes from sparse visual inputs.
-          </p>
-          <a href="https://emmanuelleb985.github.io/XDiffusion/" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">3D Reconstruction from 2D Images</h3>
-          <p class="project-description">
-            Vision Transformer framework for estimating 3D shape from single 2D images, with emphasis on geometric reasoning and clinically relevant evaluation.
-          </p>
-          <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Agentic RAG System</h3>
-          <p class="project-description">
-            Retrieval-augmented generation system for decision support, focused on grounding, retrieval diagnostics, and evaluation of multimodal outputs.
-          </p>
-          <a href="https://github.com/EmmanuelleB985/agentic-rag-system" class="project-link" target="_blank">View Project →</a>
-        </div>
-
-      </div>
+      <p>
+        I build multimodal ML systems end-to-end from large-scale data pipelines and model training to evaluation infrastructure and production deployment. My work spans VLM post-training (SFT, DPO, RLHF-style preference optimisation), hallucination and faithfulness measurement, and evaluation tooling for vision-language models at scale.
+      </p>
+      <p>
+        I hold a PhD from the University of Oxford (Visual Geometry Group), where I published at top venues and built production-quality codebases for multimodal learning, 3D reconstruction, and generative models.
+      </p>
     </section>
 
     <!-- Experience -->
     <section id="experience">
-      <h2>Work Experience</h2>
-      <div class="experience-list">
+      <h2>Experience</h2>
+      <div class="exp-list">
 
-        <div class="experience-item">
-          <div class="experience-date">May 2025 – Sep 2025</div>
-          <div class="experience-content">
-            <h3>AI Research Engineer — Multimodal ML</h3>
-            <div class="experience-company">QuantCo, London, UK</div>
+        <div class="exp-item">
+          <div class="exp-date">May 2025 – Sep 2025</div>
+          <div class="exp-content">
+            <h3>AI Engineer — Multimodal ML</h3>
+            <div class="exp-company">QuantCo · London, UK</div>
+            <ul class="exp-bullets">
+              <li>Building multimodal ML pipelines for production decision-support systems</li>
+              <li>Designing evaluation and regression-testing infrastructure for model releases</li>
+            </ul>
           </div>
         </div>
 
-        <div class="experience-item">
-          <div class="experience-date">Oct 2021 – Jan 2022</div>
-          <div class="experience-content">
-            <h3>ML Engineer Intern — Multimodal Learning</h3>
-            <div class="experience-company">Novartis, Oxford, UK</div>
+        <div class="exp-item">
+          <div class="exp-date">Oct 2021 – Apr 2025</div>
+          <div class="exp-content">
+            <h3>PhD Researcher</h3>
+            <div class="exp-company">University of Oxford · Oxford, UK</div>
+            <ul class="exp-bullets">
+              <li>Built distributed training workflows for diffusion and vision-transformer models on multi-GPU clusters</li>
+              <li>Processed and curated datasets at scale (1B+ labelled masks, 48K+ source datasets)</li>
+              <li>Published 6 papers at ICCV, MICCAI, CVPR, and BMVC.</li>
+            </ul>
           </div>
         </div>
 
-        <div class="experience-item">
-          <div class="experience-date">Sep 2020 – Sep 2021</div>
-          <div class="experience-content">
+        <div class="exp-item">
+          <div class="exp-date">Oct 2021 – Jan 2022</div>
+          <div class="exp-content">
+            <h3>ML Engineer Intern</h3>
+            <div class="exp-company">Novartis · Oxford, UK</div>
+            <ul class="exp-bullets">
+              <li>Built multimodal learning pipelines for medical imaging data</li>
+              <li>Worked across data engineering, model training, and evaluation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Sep 2020 – Sep 2021</div>
+          <div class="exp-content">
             <h3>AI Software Engineer</h3>
-            <div class="experience-company">GE HealthCare, Oxford, UK</div>
+            <div class="exp-company">GE HealthCare · Oxford, UK</div>
+            <ul class="exp-bullets">
+              <li>Developed ML-powered features for clinical imaging products</li>
+              <li>Integrated models into production software with CI/CD and testing</li>
+            </ul>
           </div>
         </div>
 
-        <div class="experience-item">
-          <div class="experience-date">Jun 2020 – Sep 2020</div>
-          <div class="experience-content">
-            <h3>AI Research Intern</h3>
-            <div class="experience-company">Netdevices, Paris, France</div>
+        <div class="exp-item">
+          <div class="exp-date">Jun 2020 – Sep 2020</div>
+          <div class="exp-content">
+            <h3>AI Engineer Intern</h3>
+            <div class="exp-company">Netdevices · Paris, France</div>
+            <ul class="exp-bullets">
+              <li>Prototyped deep learning pipelines for healthcare applications</li>
+            </ul>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Publications -->
-    <section id="publications">
-      <h2>Publications</h2>
-      <div class="publication-list">
+    <!-- Open-Source & Tooling -->
+    <section id="software">
+      <h2>Open-Source & Tooling</h2>
+      <div class="card-grid">
 
-        <div class="publication-item">
-          <div class="publication-year">2025</div>
-          <div class="publication-title">
-            UKBOB: One Billion Labeled Masks for Generalizable 3D Segmentation
-          </div>
-          <div class="publication-authors">
-            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Abdullah Hamdi
-          </div>
-          <div class="publication-venue">International Conference on Computer Vision (ICCV)</div>
-          <div class="publication-description">
-            Large-scale semi-supervised framework for 3D segmentation with 1B+ labeled masks from 48K+ datasets, enabling generalizable models across diverse imaging modalities.
-          </div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/abs/2504.06908" target="_blank">Paper</a>
-            <a href="https://emmanuelleb985.github.io/ukbob/" target="_blank">Project Page</a>
-            <a href="https://github.com/EmmanuelleB985/UK_BOB" target="_blank">Code</a>
+        <div class="card highlight">
+          <h3>mmeval-vrag</h3>
+          <p class="desc">
+            Pip-installable Python package for evaluating multimodal RAG systems. Measures retrieval quality, hallucination rate, answer faithfulness, and cross-modal alignment. Supports checkpoint comparison and automated regression testing for CI integration.
+          </p>
+          <code class="install">pip install mmeval-vrag</code>
+          <div class="card-links">
+            <a href="https://pypi.org/project/mmeval-vrag/" target="_blank"><i class="fab fa-python"></i> PyPI →</a>
+            <a href="https://github.com/EmmanuelleB985/mmeval-vrag" target="_blank"><i class="fab fa-github"></i> GitHub →</a>
+            <a href="https://pypi.org/project/mmeval-vrag/" target="_blank" class="pypi-badge"><img src="https://badge.fury.io/py/mmeval-vrag.svg" alt="PyPI version"></a>
           </div>
         </div>
 
-        <div class="publication-item">
-          <div class="publication-year">2025</div>
-          <div class="publication-title">
-            FrEVL: Leveraging Frozen Pretrained Embeddings for Efficient Vision-Language Understanding
-            <span class="publication-badge">Spotlight</span>
-          </div>
-          <div class="publication-authors">
-            <strong>Emmanuelle Bourigault</strong>, Pauline Bourigault
-          </div>
-          <div class="publication-venue">International Conference on Computer Vision Safe and Trustworthy Multimodal AI Systems Workshop (ICCVW)</div>
-          <div class="publication-description">
-            Efficient vision-language adaptation using frozen CLIP and BLIP embeddings, preserving strong multimodal performance with far fewer trainable parameters.
-          </div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/abs/2508.04469" target="_blank">Paper</a>
-            <a href="https://github.com/EmmanuelleB985/FrEVL" target="_blank">Code</a>
-          </div>
-        </div>
-
-        <div class="publication-item">
-          <div class="publication-year">2025</div>
-          <div class="publication-title">
-            X-Diffusion: Generating 3D Volumes From a Single Image Using Cross-Sectional Diffusion Models
-            <span class="publication-badge">Oral</span>
-          </div>
-          <div class="publication-authors">
-            <strong>Emmanuelle Bourigault</strong>, Abdullah Hamdi, Amir Jamaludin
-          </div>
-          <div class="publication-venue">International Conference on Computer Vision GAIA Workshop (ICCVW)</div>
-          <div class="publication-description">
-            Diffusion model for generating detailed 3D volumes from sparse cross-sectional visual inputs.
-          </div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/pdf/2404.19604" target="_blank">Paper</a>
-            <a href="https://emmanuelleb985.github.io/XDiffusion/" target="_blank">Project Page</a>
-            <a href="https://github.com/EmmanuelleB985/X-Diffusion" target="_blank">Code</a>
-          </div>
-        </div>
-
-        <div class="publication-item">
-          <div class="publication-year">2024</div>
-          <div class="publication-title">
-            Estimating 3D Shape from 2D Images Using Vision Transformers
-            <span class="publication-badge">Oral</span>
-          </div>
-          <div class="publication-authors">
-            <strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Andrew Zisserman
-          </div>
-          <div class="publication-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI)</div>
-          <div class="publication-description">
-            2D-to-3D reconstruction using Vision Transformers for shape estimation from single images.
-          </div>
-          <div class="publication-links">
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_1" target="_blank">Paper</a>
-            <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" target="_blank">Project Page</a>
-            <a href="https://github.com/EmmanuelleB985/DXA-to-3D" target="_blank">Code</a>
-          </div>
-        </div>
-
-        <div class="publication-item">
-          <div class="publication-year">2024</div>
-          <div class="publication-title">
-            Multi-Modal Information Bottleneck Attribution with Cross-Attention Guidance
-          </div>
-          <div class="publication-authors">
-            Pauline Bourigault, <strong>Emmanuelle Bourigault</strong>, Danilo Mantic
-          </div>
-          <div class="publication-venue">British Machine Vision Conference (BMVC)</div>
-          <div class="publication-description">
-            Multi-modal attribution method using information bottleneck theory and cross-attention for interpretable vision-language models.
-          </div>
-          <div class="publication-links">
-            <a href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_64/paper.pdf" target="_blank">Paper</a>
-          </div>
-        </div>
-
-        <div class="publication-item">
-          <div class="publication-year">2024</div>
-          <div class="publication-title">
-            MVDiff: Scalable and Flexible Multi-View Diffusion for 3D Object Reconstruction from Single-View
-          </div>
-          <div class="publication-authors">
-            <strong>Emmanuelle Bourigault</strong>, Pauline Bourigault
-          </div>
-          <div class="publication-venue">Computer Vision and Pattern Recognition Workshop on Generative AI (CVPR)</div>
-          <div class="publication-description">
-            Scalable multi-view diffusion approach for 3D object reconstruction from single images with flexible viewpoint generation.
-          </div>
-          <div class="publication-links">
-            <a href="https://openaccess.thecvf.com/content/CVPR2024W/GCV/papers/Bourigault_MVDiff_Scalable_and_Flexible_Multi-view_Diffusion_for_3D_Object_Reconstruction_CVPRW_2024_paper.pdf" target="_blank">Paper</a>
-            <a href="https://github.com/EmmanuelleB985/MVDiff" target="_blank">Code</a>
+        <div class="card highlight">
+          <h3>SciVLA-Verify</h3>
+          <p class="desc">
+            Agentic evaluation toolkit for multimodal scientific reasoning. Generates verified reasoning traces and SFT/DPO preference data for post-training pipelines. Designed for integration into automated model-improvement loops.
+          </p>
+          <div class="card-links">
+            <a href="#">Coming Soon →</a>
           </div>
         </div>
 
@@ -854,31 +585,206 @@
     <!-- Skills -->
     <section id="skills">
       <h2>Technical Skills</h2>
-      <div class="skills-list">
+      <div class="skills-grid">
 
-        <div class="skill-item">
+        <div class="skill-row">
+          <span class="skill-label">Languages & Core:</span>
+          <span class="skill-val">Python (proficient), C++ (intermediate), Bash, Git</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-label">ML Frameworks:</span>
+          <span class="skill-val">PyTorch, JAX, Hugging Face Transformers, vLLM, ONNX</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-label">Infrastructure:</span>
+          <span class="skill-val">Docker, Kubernetes, AWS (EC2/S3/SageMaker), FastAPI, CI/CD, distributed training (multi-node GPU)</span>
+        </div>
+
+        <div class="skill-row">
+          <span class="skill-label">Data & Retrieval:</span>
+          <span class="skill-val">FAISS, Pinecone, Chroma, PostgreSQL, large-scale data filtering, synthetic data generation, DICOM</span>
+        </div>
+
+        <div class="skill-row">
           <span class="skill-label">Post-Training:</span>
-          <span class="skill-content">SFT, RLHF-style preference optimisation, DPO, PEFT/LoRA/QLoRA, reward-model evaluation, failure analysis</span>
+          <span class="skill-val">SFT, DPO, RLHF-style preference optimisation, PEFT/LoRA/QLoRA, reward-model evaluation</span>
         </div>
 
-        <div class="skill-item">
-          <span class="skill-label">VLM Evaluation:</span>
-          <span class="skill-content">Hallucination detection, retrieval faithfulness, visual grounding, cross-modal alignment, regression testing, benchmark design</span>
+        <div class="skill-row">
+          <span class="skill-label">Evaluation:</span>
+          <span class="skill-val">Hallucination detection, retrieval faithfulness, visual grounding, cross-modal alignment, regression testing, benchmark design</span>
         </div>
 
-        <div class="skill-item">
-          <span class="skill-label">Multimodal Models:</span>
-          <span class="skill-content">CLIP, BLIP-2, LLaVA-style models, Vision Transformers, diffusion models, 3D reconstruction, multimodal retrieval</span>
+        <div class="skill-row">
+          <span class="skill-label">Models:</span>
+          <span class="skill-val">CLIP, BLIP-2, LLaVA-family, Vision Transformers, diffusion models, 3D reconstruction, multimodal RAG</span>
         </div>
 
-        <div class="skill-item">
-          <span class="skill-label">Engineering:</span>
-          <span class="skill-content">Python, PyTorch, JAX, Hugging Face, vLLM, FastAPI, Docker, Kubernetes, AWS, CUDA, distributed training</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card-grid">
+
+        <div class="card">
+          <h3>UKBOB: Billion-Scale 3D Segmentation Pipeline</h3>
+          <p class="desc">End-to-end pipeline generating 1B+ labelled masks across 48K+ datasets for generalizable 3D segmentation. Semi-supervised learning with automated quality control.</p>
+          <div class="tag-row">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Distributed Training</span>
+            <span class="tag">Large-Scale Data</span>
+          </div>
+          <div class="card-links">
+            <a href="https://emmanuelleb985.github.io/ukbob/" target="_blank">Project →</a>
+            <a href="https://github.com/EmmanuelleB985/UK_BOB" target="_blank">Code →</a>
+          </div>
         </div>
 
-        <div class="skill-item">
-          <span class="skill-label">Data Systems:</span>
-          <span class="skill-content">FAISS, Pinecone, Chroma, PostgreSQL, DICOM, large-scale data filtering, synthetic data generation, evaluation datasets</span>
+        <div class="card">
+          <h3>FrEVL: Parameter-Efficient VLM Adaptation</h3>
+          <p class="desc">Vision-language adaptation using frozen CLIP/BLIP embeddings. Strong multimodal performance with significantly fewer trainable parameters. Designed for fast iteration and low compute cost.</p>
+          <div class="tag-row">
+            <span class="tag">CLIP</span>
+            <span class="tag">BLIP</span>
+            <span class="tag">Efficient Fine-Tuning</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/EmmanuelleB985/FrEVL" target="_blank">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Agentic RAG System</h3>
+          <p class="desc">Retrieval-augmented generation system with grounding diagnostics, retrieval quality metrics, and evaluation of multimodal outputs. Built for decision-support use cases.</p>
+          <div class="tag-row">
+            <span class="tag">RAG</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Vector DB</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/EmmanuelleB985/agentic-rag-system" target="_blank">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>X-Diffusion: 3D Volume Generation</h3>
+          <p class="desc">Cross-sectional diffusion model generating complete 3D volumes from sparse inputs. Production-oriented codebase with reproducible training and inference pipelines.</p>
+          <div class="tag-row">
+            <span class="tag">Diffusion Models</span>
+            <span class="tag">3D</span>
+            <span class="tag">PyTorch</span>
+          </div>
+          <div class="card-links">
+            <a href="https://emmanuelleb985.github.io/XDiffusion/" target="_blank">Project →</a>
+            <a href="https://github.com/EmmanuelleB985/X-Diffusion" target="_blank">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>MVDiff: Multi-View Diffusion for 3D Reconstruction</h3>
+          <p class="desc">Scalable multi-view generation pipeline for 3D object reconstruction from single images with flexible viewpoint conditioning.</p>
+          <div class="tag-row">
+            <span class="tag">Diffusion</span>
+            <span class="tag">Multi-View</span>
+            <span class="tag">3D Recon</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/EmmanuelleB985/MVDiff" target="_blank">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>2D→3D Shape Estimation (ViT)</h3>
+          <p class="desc">Vision Transformer pipeline estimating 3D shape from single 2D images with clinically relevant evaluation and geometric reasoning.</p>
+          <div class="tag-row">
+            <span class="tag">ViT</span>
+            <span class="tag">3D Recon</span>
+            <span class="tag">Medical</span>
+          </div>
+          <div class="card-links">
+            <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" target="_blank">Project →</a>
+            <a href="https://github.com/EmmanuelleB985/DXA-to-3D" target="_blank">Code →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-title">UKBOB: One Billion Labeled Masks for Generalizable 3D Segmentation</div>
+          <div class="pub-authors"><strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Abdullah Hamdi</div>
+          <div class="pub-venue">ICCV 2025</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2504.06908" target="_blank">Paper</a>
+            <a href="https://emmanuelleb985.github.io/ukbob/" target="_blank">Project</a>
+            <a href="https://github.com/EmmanuelleB985/UK_BOB" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-title">FrEVL: Leveraging Frozen Pretrained Embeddings for Efficient Vision-Language Understanding <span class="pub-badge">Spotlight</span></div>
+          <div class="pub-authors"><strong>Emmanuelle Bourigault</strong>, Pauline Bourigault</div>
+          <div class="pub-venue">ICCV Workshop 2025</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2508.04469" target="_blank">Paper</a>
+            <a href="https://github.com/EmmanuelleB985/FrEVL" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-title">X-Diffusion: Generating 3D Volumes From a Single Image <span class="pub-badge">Oral</span></div>
+          <div class="pub-authors"><strong>Emmanuelle Bourigault</strong>, Abdullah Hamdi, Amir Jamaludin</div>
+          <div class="pub-venue">ICCV Workshop 2025</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/pdf/2404.19604" target="_blank">Paper</a>
+            <a href="https://emmanuelleb985.github.io/XDiffusion/" target="_blank">Project</a>
+            <a href="https://github.com/EmmanuelleB985/X-Diffusion" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-title">Estimating 3D Shape from 2D Images Using Vision Transformers <span class="pub-badge">Oral</span></div>
+          <div class="pub-authors"><strong>Emmanuelle Bourigault</strong>, Amir Jamaludin, Andrew Zisserman</div>
+          <div class="pub-venue">MICCAI 2024</div>
+          <div class="pub-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_1" target="_blank">Paper</a>
+            <a href="https://www.robots.ox.ac.uk/~vgg/research/dxa-to-3d/" target="_blank">Project</a>
+            <a href="https://github.com/EmmanuelleB985/DXA-to-3D" target="_blank">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-title">Multi-Modal Information Bottleneck Attribution with Cross-Attention Guidance</div>
+          <div class="pub-authors">Pauline Bourigault, <strong>Emmanuelle Bourigault</strong>, Danilo Mantic</div>
+          <div class="pub-venue">BMVC 2024</div>
+          <div class="pub-links">
+            <a href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_64/paper.pdf" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-title">MVDiff: Scalable Multi-View Diffusion for 3D Reconstruction</div>
+          <div class="pub-authors"><strong>Emmanuelle Bourigault</strong>, Pauline Bourigault</div>
+          <div class="pub-venue">CVPR Workshop 2024</div>
+          <div class="pub-links">
+            <a href="https://openaccess.thecvf.com/content/CVPR2024W/GCV/papers/Bourigault_MVDiff_Scalable_and_Flexible_Multi-view_Diffusion_for_3D_Object_Reconstruction_CVPRW_2024_paper.pdf" target="_blank">Paper</a>
+            <a href="https://github.com/EmmanuelleB985/MVDiff" target="_blank">Code</a>
+          </div>
         </div>
 
       </div>
@@ -887,30 +793,30 @@
     <!-- Education -->
     <section id="education">
       <h2>Education</h2>
-      <div class="education-list">
+      <div class="edu-list">
 
-        <div class="education-item">
-          <div class="education-year">2021 - 2025</div>
-          <div class="education-content">
+        <div class="edu-item">
+          <div class="edu-year">2021 – 2025</div>
+          <div class="edu-content">
             <h3>PhD in Multimodal AI & Computer Vision</h3>
-            <div class="education-institution">University of Oxford</div>
-            <div class="education-details">Advisor: Prof. Andrew Zisserman, Visual Geometry Group</div>
+            <div class="edu-inst">University of Oxford — Visual Geometry Group</div>
+            <div class="edu-detail">Advisor: Prof. Andrew Zisserman</div>
           </div>
         </div>
 
-        <div class="education-item">
-          <div class="education-year">2019 - 2020</div>
-          <div class="education-content">
+        <div class="edu-item">
+          <div class="edu-year">2019 – 2020</div>
+          <div class="edu-content">
             <h3>MSc in Computational Neuroscience</h3>
-            <div class="education-institution">Imperial College London</div>
+            <div class="edu-inst">Imperial College London</div>
           </div>
         </div>
 
-        <div class="education-item">
-          <div class="education-year">2016 - 2019</div>
-          <div class="education-content">
-            <h3>BSc in Mathematics/Statistics</h3>
-            <div class="education-institution">University College London (UCL)</div>
+        <div class="edu-item">
+          <div class="edu-year">2016 – 2019</div>
+          <div class="edu-content">
+            <h3>BSc in Mathematics & Statistics</h3>
+            <div class="edu-inst">University College London (UCL)</div>
           </div>
         </div>
 
@@ -928,32 +834,19 @@
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
-
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 100) {
-          current = section.getAttribute('id');
-        }
+      sections.forEach(s => {
+        if (scrollY >= s.offsetTop - 100) current = s.id;
       });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-          link.classList.add('active');
-        }
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href').slice(1) === current);
       });
     });
   </script>
